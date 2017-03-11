@@ -14,7 +14,7 @@ GeneticSearch::GeneticSearch(int val_population_size, string val_selection_metho
 	selectivity_from_parents = 0;
 	selectivity_from_children = 0;
 }
-void GeneticSearch::Solve(TSMProblem * problem)
+Chromosome* GeneticSearch::Solve(TSMProblem * problem)
 {
 	Population* currentPopulation = problem->getInitialPopulation(population_size);
 	for (int i = 0; i < no_of_iterations; i++)
@@ -31,6 +31,7 @@ void GeneticSearch::Solve(TSMProblem * problem)
 		offsprings->selectBest(selectivity_from_children);
 		currentPopulation->mergePopulation(offsprings);
 	}
+	return currentPopulation->currentBest();
 }
 GeneticSearch::~GeneticSearch()
 {

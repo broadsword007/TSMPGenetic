@@ -1,5 +1,5 @@
 #include "Population.h"
-
+#include "Chromosome.h"
 
 Population::Population(vector<Chromosome*> val_chromosomes)
 {
@@ -21,7 +21,7 @@ void Population::mutate(string params)
 {
 	// mutate each chromosome
 }
-Population* Population::mergePopulation(Population* another_population)
+void Population::mergePopulation(Population* another_population)
 {
 	for each (Chromosome* chromosome in another_population->getChromosomes())
 	{
@@ -31,6 +31,22 @@ Population* Population::mergePopulation(Population* another_population)
 vector<Chromosome*> Population::getChromosomes()
 {
 	return chromosomes;
+}
+Chromosome* Population::currentBest()
+{
+	Chromosome* best;
+	for each (Chromosome* chromosome in chromosomes)
+	{
+		if (!best) best = chromosome;
+		else
+		{
+			if (chromosome->getFitness() > best->getFitness())
+			{
+				best = chromosome;
+			}
+		}
+	}
+	return best;
 }
 Population::~Population()
 {

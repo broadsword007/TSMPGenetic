@@ -1,5 +1,5 @@
 #include "TSMPChromosome.h"
-
+#include "Population.h"
 
 TSMPChromosome::TSMPChromosome(vector<City*> val_cities_order) :Chromosome()
 {
@@ -16,7 +16,7 @@ float TSMPChromosome::getFitness()
 }
 Population* TSMPChromosome::performCrossover(Chromosome* another_chromosome, string params)
 {
-	
+	return NULL;
 }
 void TSMPChromosome::mutate(string params)
 {

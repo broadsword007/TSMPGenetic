@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 #include "City.h"
-#include "Chromosome.h"
+//#include "Chromosome.h"
+class Chromosome;
 using namespace std;
 class Population
 {
@@ -12,8 +13,9 @@ public:
 	Population* performCrossover(string params);
 	void mutate(string params);
 	Population(vector<Chromosome*> val_chromosomes);
-	Population* mergePopulation(Population* another_population);
+	void mergePopulation(Population* another_population);
 	vector<Chromosome*> getChromosomes();
+	Chromosome* currentBest();
 	~Population();
 };
 

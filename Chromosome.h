@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "Population.h"
+//#include "Population.h"
+class Population;
+
 using namespace std;
 class Chromosome
 {
@@ -11,7 +13,7 @@ protected:
 public:
 	virtual float getFitness() = 0;
 	virtual Population* performCrossover(Chromosome* another_chromosome, string params)=0;
-	virtual void mutate(string params);
+	virtual void mutate(string params)=0;
 	Chromosome();
 	~Chromosome();
 };

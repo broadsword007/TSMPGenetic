@@ -3,6 +3,7 @@
 #include <vector>
 #include "TSMProblem.h"
 #include "Population.h"
+#include "Chromosome.h"
 using namespace std;
 class GeneticSearch
 {
@@ -19,7 +20,7 @@ class GeneticSearch
 public:
 	GeneticSearch(int val_population_size, string val_selection_method,
 		string val_crossoverMethod, float val_mutation_rate, int val_no_of_iterations, float val_max_fitness);
-	void Solve(TSMProblem * problem);
+	Chromosome* Solve(TSMProblem * problem);
 	~GeneticSearch();
 };
 
