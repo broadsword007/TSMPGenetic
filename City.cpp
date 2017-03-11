@@ -14,7 +14,14 @@ float City::distanceTo(int val_cityNumber)
 	if (val_cityNumber >= distances.size()) { cout<<"wrong city number"<<endl ; return 0; }
 	return distances[val_cityNumber];
 }
-
+vector<float> City::getDistances()
+{
+	return distances;
+}
+int City::getCityNumber()
+{
+	return cityNumber;
+}
 City::~City()
 {
 }
