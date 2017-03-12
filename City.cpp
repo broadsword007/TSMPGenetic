@@ -1,9 +1,9 @@
 #include "City.h"
 
 
-City::City(int val_cityNumber, vector<float> val_distances)
+City::City(int val_cityNumber, vector<float> val_distances, float xcord, float ycord)
 {
-	cityNumber = val_cityNumber;
+	cityNumber = val_cityNumber, xCoord = xcord, yCoord = ycord;
 	for each (float distance in val_distances)
 	{
 		distances.push_back(distance);
@@ -21,6 +21,14 @@ vector<float> City::getDistances()
 int City::getCityNumber()
 {
 	return cityNumber;
+}
+float City::getXCoord()
+{
+	return xCoord;
+}
+float City::getYCoord()
+{
+	return yCoord;
 }
 City::~City()
 {
