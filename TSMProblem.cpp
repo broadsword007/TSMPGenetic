@@ -30,7 +30,7 @@ Population* TSMProblem::getInitialPopulation(int size)
 	}
 	return new_population;
 }
-vector<vector<float>> readCoords(string filename, int & total_lines_read)
+vector<vector<float>> TSMProblem::readCoords(string filename, int & total_lines_read)
 {
 	int size = 2;										// size is 312 because total cities = 312
 	vector<float> coord_of_one_city;
@@ -102,7 +102,8 @@ vector<vector<float>> readCoords(string filename, int & total_lines_read)
 		}
 	}
 	return Node_with_all_cities_coords;
-}vector<City*> readDistancesFromFile(string filename, string CoordFile, int & total_lines_read)
+}
+vector<City*> TSMProblem::readDistancesFromFile(string filename, string CoordFile, int & total_lines_read)
 {
 	int size = 0;
 	vector<vector<float>> Node_with_all_cities_coords = readCoords(CoordFile, size);
