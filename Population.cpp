@@ -22,12 +22,16 @@ void Population::selectBest(int number_of_best, string param)
 		srand(time(NULL));
 		for (int i = 0; i < number_of_best; i++)
 		{
-			Chromosome* best;
+			Chromosome* best=NULL;
 			int best_index;
 			for (int j = 0; j < chromosomes.size() / 4; j++)
 			{
 				int child_no = rand() % chromosomes.size();
-				if (!best) { best = chromosomes[child_no]; best_index = child_no; }
+				if (best==NULL) 
+				{
+					best = chromosomes[child_no];
+					best_index = child_no; 
+				}
 				else
 				{
 					if (chromosomes[child_no]->getFitness() > best->getFitness())
@@ -88,7 +92,7 @@ vector<Chromosome*> Population::getChromosomes()
 }
 Chromosome* Population::currentBest()
 {
-	Chromosome* best;
+	Chromosome* best=NULL;
 	for each (Chromosome* chromosome in chromosomes)
 	{
 		if (!best) best = chromosome;

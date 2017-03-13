@@ -11,8 +11,12 @@ City::City(int val_cityNumber, vector<float> val_distances, float xcord, float y
 }
 float City::distanceTo(int val_cityNumber)
 {
-	if (val_cityNumber >= distances.size()) { cout<<"wrong city number"<<endl ; return 0; }
-	return distances[val_cityNumber];
+	if (val_cityNumber-1 >= distances.size()) 
+	{ 
+		cout<<"wrong city number"<<endl ; 
+		return 0; 
+	}
+	return distances[val_cityNumber-1];
 }
 vector<float> City::getDistances()
 {

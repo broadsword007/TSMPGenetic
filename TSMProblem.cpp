@@ -14,7 +14,7 @@ void TSMProblem::initialize_cities(string coord_filename, string distances_filen
 	distances_filename = distances_filename + ".txt";
 	int total_lines_read = 0;
 	cities = readDistancesFromFile(distances_filename, coord_filename, total_lines_read);
-	printer(this);
+	//printer(this);
 	cout << endl << "Size of Main Node : " << cities.size() << endl;
 	cout << "Number Of lines read : " << total_lines_read << endl;
 }
@@ -141,9 +141,13 @@ vector<City*> TSMProblem::readDistancesFromFile(string filename, string CoordFil
 						if (distances_of_one_city.size() == size)
 						{
 							int city_number = Node_with_all_cities_distances.size();
+							if (city_number == 312)
+							{
+								return Node_with_all_cities_distances;
+							}
 							float xcoord = Node_with_all_cities_coords[city_number][0];
 							float ycoord = Node_with_all_cities_coords[city_number][1];
-							City* c = new City(city_number, distances_of_one_city, xcoord, ycoord);
+							City* c = new City(city_number+1, distances_of_one_city, xcoord, ycoord);
 							Node_with_all_cities_distances.push_back(c);
 							distances_of_one_city.clear();
 						}
@@ -159,6 +163,10 @@ vector<City*> TSMProblem::readDistancesFromFile(string filename, string CoordFil
 			if (distances_of_one_city.size() == size)
 			{
 				int city_number = Node_with_all_cities_distances.size();
+				if (city_number == 312)
+				{
+					return Node_with_all_cities_distances;
+				}
 				float xcoord = Node_with_all_cities_coords[city_number][0];
 				float ycoord = Node_with_all_cities_coords[city_number][1];
 				City* c = new City(city_number + 1, distances_of_one_city, xcoord, ycoord);

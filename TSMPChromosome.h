@@ -15,6 +15,8 @@ public:
 	Population* performCrossover(Chromosome* another_chromosome, string params);
 	void mutate(int mutation_rate);
 	vector<City*> getcitieslist();
+	void print();
+	void writeToFile(string filename);
 	~TSMPChromosome();
 };
 

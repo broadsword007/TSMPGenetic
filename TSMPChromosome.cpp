@@ -1,11 +1,15 @@
 #include "TSMPChromosome.h"
 #include "Population.h"
+#include <sstream>
+#include <fstream>
+#include <string>
 #include <time.h>
 TSMPChromosome::TSMPChromosome(vector<City*> val_cities_order) :Chromosome()
 {
 	for each (City* city in val_cities_order)
 	{
 		cities_order.push_back(city);
+		fitness_calculated = false;
 	}
 }
 float TSMPChromosome::getFitness()
@@ -81,6 +85,33 @@ void TSMPChromosome::mutate(int mutation_rate)
 			cities_order[with] = temp;
 		}
 	}
+}
+void TSMPChromosome::print()
+{
+	cout << fitness;
+}
+void TSMPChromosome::writeToFile(string filename)
+{
+	std::ofstream out(filename);
+	if (!out.is_open())
+	{
+		cout << "File not opened" << endl;
+		return;
+	}
+
+	for each (City* city in cities_order)
+	{
+		stringstream ss1;
+		stringstream ss2;
+		int x = city->getXCoord();
+		int y = city->getYCoord();
+		ss1 << x;
+		string cityString = ss1.str();
+		ss2 << y;
+		cityString += "," + ss2.str() + "\n";
+		out << cityString;
+	}
+	out.close();
 }
 TSMPChromosome::~TSMPChromosome()
 {
